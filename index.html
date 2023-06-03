@@ -13,15 +13,13 @@
       <ul>
         <li><a href="#">Beranda</a></li>
         <li><a href="#">Tentang Kami</a></li>
-        <li><a href="#">Download</a></li>
+        <li><a href="#file-section">Download</a></li>
         <li><a href="#">Kontak</a></li>
       </ul>
     </nav>
     <div class="search">
-        <form onsubmit="event.preventDefault(); searchFile();">
-        <input type="text" id="search-input" placeholder="Cari...">
-        <button type="submit">Cari</button>
-      </form>
+      <input type="text" id="search-input" placeholder="Cari..." onkeydown="search(event)">
+      <button type="submit">Cari</button>
     </div>
   </header>
   
@@ -34,6 +32,7 @@
           ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
           alt="Placeholder Image"
         />
+    </section>
   </main>
   <div class="file-info">
     <ul id="file-section" class="file-list">
@@ -190,6 +189,20 @@
   <footer>
     <p>&copy; 2023 Sadid Alfa. All rights reserved.</p>
 </footer>
-<script src="search.js"></script>
+<script>
+  function search(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      var searchText = document.getElementById("search-input").value.toLowerCase();
+      var fileItems = document.querySelectorAll(".file-details");
+      fileItems.forEach(function (item) {
+        var fileName = item.querySelector(".file-name").textContent.toLowerCase();
+        if (fileName.includes(searchText)) {
+          item.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    }
+  }
+</script>
 </body>
 </html>
