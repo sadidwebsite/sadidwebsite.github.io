@@ -14,12 +14,12 @@
         <li><a href="#">Beranda</a></li>
         <li><a href="#">Tentang Kami</a></li>
         <li><a href="#file-section">Download</a></li>
-        <li><a href="#">Kontak</a></li>
+        <li><a href="#kontakperson">Kontak</a></li>
       </ul>
     </nav>
     <div class="search">
       <input type="text" id="search-input" placeholder="Cari..." onkeydown="search(event)">
-      <button type="submit">Cari</button>
+      <button type="submit" onsubmit="search(event)">Cari</button>
     </div>
   </header>
   
@@ -183,14 +183,44 @@
           </div>
         </div>
       </li>
+      <li>
+        <div class="file-details"><!-- STYLE Manual update -->
+          <div class="file-photo">
+            <img src="https://i9.ytimg.com/vi_webp/dmaVb3khFnA/sddefault.webp?v=649bb786&sqp=CPyU8KQG&rs=AOn4CLAi9DZ18DcZDRfGNNU1Th-6g3a_sg" 
+            alt="www.sadidwebsite.com/picture924856"/>
+          </div>
+          <div class="file-info-text">
+            <span class="file-name">SET MANUAL SEMI FULL UPDATE</span>
+            <span class="file-description">Style org semi manual full update || style gratis.
+              Password ada di dalam video, terdiri dari 11 HURUF dan 4 ANGKA kalo sudah ketemu 
+              satukan tanpa spasi dan memakai huruf kapital.
+            </span>
+            <div class="file-download">
+              <a href="https://www.mediafire.com/file/c7bxnpsi2ukbc4y/Set_2023_V1.0.7z/file" download>Download</a>
+            </div>
+          </div>
+        </div>
+      </li>
       <!-- Tambahkan item file lainnya sesuai kebutuhan -->
     </ul>
+  </div>
+
+  <!-- Kontak Person -->
+  <div id="kontakperson" class="contact-container">
+    <h2>Kontak Person</h2>
+    <form class="contact-form" action="#" method="post">
+      <input type="text" name="name" placeholder="Nama" required>
+      <input type="text" name="email" placeholder="Email" required>
+      <textarea name="message" placeholder="Pesan" required></textarea>
+      <button type="submit">Kirim</button>
+    </form>
   </div>
   <footer>
     <p>&copy; 2023 Sadid Alfa. All rights reserved.</p>
 </footer>
 <script>
-  function search(event) {
+  function search(event) 
+  {
     if (event.keyCode === 13) {
       event.preventDefault();
       var searchText = document.getElementById("search-input").value.toLowerCase();
